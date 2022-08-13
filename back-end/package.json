@@ -1,0 +1,9 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "Back end of the preparation app",
+  "main": "index.js",
+  "author": "Yigit Kaan Korkmaz",
+  "license": "MIT",
+  "private": false
+}
