@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+  --white: #ffffff;
+  --bg: #2c3333;
+  --primary: #395b64;
+  --primary-light: #a5c9ca;
+  --primary-lighter: #e7f6f2;
+}
+
 *,
 *::before,
 *::after {
@@ -14,6 +24,7 @@ body {
   line-height: calc(1em + 0.5rem);
   -webkit-font-smoothing: antialiased;
   font-size: 62.5%;
+  font-family: "Lato", sans-serif, monospace;
 }
 
 html,

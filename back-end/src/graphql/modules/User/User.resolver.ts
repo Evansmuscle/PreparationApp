@@ -22,7 +22,7 @@ export class UserResolver {
   @Mutation((_returns) => User)
   async createUser(
     @Arg("CreateUserInput", (_type) => CreateUserInput) input: CreateUserInput,
-    @Ctx() _ctx: any
+    @Ctx() _ctx: Context
   ) {
     return this.userService.createUser(input);
   }

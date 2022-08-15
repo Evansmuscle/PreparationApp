@@ -22,7 +22,6 @@
       "@styles/*": ["styles/*"],
       "@pages/*": ["pages/*"],
       "@pages": ["pages"],
-      "@layout/*": ["layout/*"],
       "@layout": ["layout"],
       "@containers/*": ["containers/*"],
       "@containers": ["containers"]

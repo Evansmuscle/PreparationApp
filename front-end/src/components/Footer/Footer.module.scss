@@ -1,0 +1,63 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: max-content;
+  background-color: var(--bg);
+  padding: 3rem 1rem;
+  color: var(--primary-lighter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user {
+  &-info {
+    margin-right: auto;
+    margin-left: 10%;
+
+    &--author {
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    &--description {
+      font-size: 16px;
+    }
+  }
+
+  &-links {
+    list-style: none;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    &--link {
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      &-icon {
+        font-size: 32px;
+        margin-right: 0.5rem;
+      }
+
+      &-anchor {
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+}

@@ -11,15 +11,15 @@ export class User {
 
   @GqlField((_type) => String)
   @prop({ type: String })
-  firstName: string;
+  public firstName: string;
 
   @GqlField((_type) => String)
   @prop({ type: String })
-  lastName: string;
+  public lastName: string;
 
   @GqlField((_type) => String)
   @prop({ type: String })
-  password: string;
+  private password: string;
 }
 
 export const UserModel = getModelForClass(User, options);
