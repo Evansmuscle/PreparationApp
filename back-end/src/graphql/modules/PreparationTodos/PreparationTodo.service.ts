@@ -1,4 +1,4 @@
-import { PreparationTodoModel } from "./PreparationTodo.model";
+import { PreparationTodoModel } from "../models";
 
 export class PreparationTodoService {
   private readonly preparationTodo = PreparationTodoModel;

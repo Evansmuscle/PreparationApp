@@ -1,6 +1,7 @@
 import { ApolloServerPluginLandingPageLocalDefault } from "apollo-server-core";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
+import { expressjwt as jwt } from "express-jwt";
 
 // App
 import app from "./app";
@@ -23,10 +24,28 @@ export const bootstrap = async () => {
 
   const apolloServer = new ApolloServer({
     schema,
+    context: ({ req }) => {
+      const ctx = {
+        req,
+        //@ts-ignore
+        user: req.user, // this comes from express-jwt
+      };
+
+      return ctx;
+    },
     csrfPrevention: true,
     cache: "bounded",
     plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
   });
+
+  app.use(
+    "/graphql",
+    jwt({
+      secret: Configuration.JWT_SECRET,
+      credentialsRequired: false,
+      algorithms: ["HS256"],
+    })
+  );
 
   await apolloServer.start();
   apolloServer.applyMiddleware({

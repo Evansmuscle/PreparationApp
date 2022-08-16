@@ -1,19 +1,32 @@
 import * as argon from "argon2";
 
 // User Model
-import { UserModel } from "./User.model";
+import { UserModel } from "../models";
 
 // Inputs
 import { CreateUserInput } from "../../inputs";
 
 // Exceptions
-import { UserAlreadyExistsException } from "../../../exceptions";
+import {
+  UserAlreadyExistsException,
+  UserNotFoundException,
+} from "../../../exceptions";
 
 export class UserService {
   private readonly userModel = UserModel;
 
-  public me() {
-    // Get me logic
+  public async me(id: string) {
+    try {
+      const user = await this.userModel.findById(id);
+
+      if (!user) {
+        throw new UserNotFoundException();
+      }
+
+      return user;
+    } catch (err) {
+      throw new Error((err as Error).message);
+    }
   }
 
   public async createUser({

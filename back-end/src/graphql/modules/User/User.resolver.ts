@@ -16,7 +16,7 @@ export class UserResolver {
 
   @Query((_returns) => User)
   async me(@Arg("id", (_type) => String) id: string, @Ctx() _ctx: Context) {
-    return this.userService.me();
+    return this.userService.me(id);
   }
 
   @Mutation((_returns) => User)

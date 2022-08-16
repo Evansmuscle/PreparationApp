@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 
-import { DBNotFoundException } from "../exceptions";
+// Exceptions
+import { DBNotFoundException, JwtSecretNotFoundException } from "../exceptions";
 
 dotenv.config();
 
@@ -19,6 +20,14 @@ export default abstract class Configuration {
     }
 
     throw new DBNotFoundException();
+  }
+
+  public static get JWT_SECRET() {
+    if (process.env["JWT_SECRET"]) {
+      return process.env["JWT_SECRET"];
+    }
+
+    throw new JwtSecretNotFoundException();
   }
 
   public static get ENVIRONMENT() {

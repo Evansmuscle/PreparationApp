@@ -1,7 +1,13 @@
-import { Mutation, Query, Resolver } from "type-graphql";
+import { Context } from "apollo-server-core";
+import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
+
+// Inputs
+import { CreatePreparationInput } from "../../inputs";
 
 // Preparation Model
 import { Preparation } from "./Preparation.model";
+
+// Services
 import { PreparationService } from "./Preparation.service";
 
 @Resolver((_of) => Preparation)
@@ -18,7 +24,11 @@ export class PreparationResolver {
   }
 
   @Mutation((_returns) => Preparation)
-  async testMutation() {
-    return this.preparationService.createPreparation();
+  async createPreparation(
+    @Arg("CreatePreparationInput", (_type) => CreatePreparationInput)
+    input: CreatePreparationInput,
+    @Ctx() _ctx: Context
+  ) {
+    return await this.preparationService.createPreparation(input);
   }
 }
